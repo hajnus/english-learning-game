@@ -15,11 +15,23 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
+            margin: 0 auto;
         }
         button {
             padding: 10px 20px;
             margin: 10px;
             font-size: 16px;
+            background-color: white; /* Default background color */
+            color: black; /* Default text color */
+            border: 2px solid black; /* Border color to match default */
+        }
+        button.selected {
+            background-color: black;
+            color: white;
+        }
+        #sentences {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -30,9 +42,9 @@
             <img id="image" src="images/car.jpeg" alt="car">
         </div>
         <div id="sentences">
-            <button onclick="checkAnswer('This is a cat')">This is a cat</button>
-            <button onclick="checkAnswer('This is a dog')">This is a dog</button>
-            <button onclick="checkAnswer('This is a car')">This is a car</button>
+            <button onclick="checkAnswer('This is a cat', this)">This is a cat</button>
+            <button onclick="checkAnswer('This is a dog', this)">This is a dog</button>
+            <button onclick="checkAnswer('This is a car', this)">This is a car</button>
         </div>
         <div id="result"></div>
     </div>
@@ -40,16 +52,22 @@
     <script>
         const correctAnswer = "This is a car";  // Modify this based on the image
 
-        function checkAnswer(selectedAnswer) {
+        function checkAnswer(selectedAnswer, button) {
             const resultDiv = document.getElementById('result');
+
+            // Reset all buttons to default style
+            const buttons = document.querySelectorAll('#sentences button');
+            buttons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Highlight the clicked button
+            button.classList.add('selected');
+
             if (selectedAnswer === correctAnswer) {
-                resultDiv.innerHTML = "<p>Correct!</p>";
-                resultDiv.style.backgroundColor = 'black';
-                resultDiv.style.color = 'white';
+                resultDiv.innerHTML = "<p style='color:green;'>Correct!</p>";
             } else {
-                resultDiv.innerHTML = "<p>Try again!</p>";
-                resultDiv.style.backgroundColor = 'black';
-                resultDiv.style.color = 'white';
+                resultDiv.innerHTML = "<p style='color:red;'>Try again!</p>";
             }
         }
     </script>
