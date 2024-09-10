@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Match the sentence with the image</h1>
+        <div>
+            <img id="image" src="your-image-url.jpg" alt="Image">
+        </div>
+        <div id="sentences">
+            <button onclick="checkAnswer('This is a cat')">This is a cat</button>
+            <button onclick="checkAnswer('This is a dog')">This is a dog</button>
+            <button onclick="checkAnswer('This is a car')">This is a car</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const correctAnswer = "This is a cat";  // Modify this based on the image
+
+        function checkAnswer(selectedAnswer) {
+            const resultDiv = document.getElementById('result');
+            if (selectedAnswer === correctAnswer) {
+                resultDiv.innerHTML = "<p style='color:green;'>Correct!</p>";
+            } else {
+                resultDiv.innerHTML = "<p style='color:red;'>Try again!</p>";
+            }
+        }
+    </script>
+</body>
+</html>
