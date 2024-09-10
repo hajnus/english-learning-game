@@ -36,18 +36,15 @@
         #result {
             padding: 10px;
             margin-top: 20px;
-            display: inline-block;
+            display: none; /* Initially hidden */
             font-size: 1.5em; /* Make text 1.5 times larger */
             font-weight: bold; /* Make text bold */
-            display: none; /* Initially hidden */
         }
         .correct {
             color: green; /* Text color for correct answer */
-            background-color: black; /* Background color for the result box */
         }
         .incorrect {
             color: red; /* Text color for incorrect answer */
-            background-color: black; /* Background color for the result box */
         }
     </style>
 </head>
@@ -84,10 +81,10 @@
             resultDiv.style.display = 'inline-block';
             if (selectedAnswer === correctAnswer) {
                 resultDiv.innerHTML = "<p>Correct!</p>";
-                resultDiv.className = 'correct';
+                resultDiv.className = 'correct'; // Apply the correct class
             } else {
                 resultDiv.innerHTML = "<p>Try again!</p>";
-                resultDiv.className = 'incorrect';
+                resultDiv.className = 'incorrect'; // Apply the incorrect class
             }
 
             // Hide the result and reset the button styles after 1 second
