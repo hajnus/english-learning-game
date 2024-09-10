@@ -43,9 +43,13 @@
         function checkAnswer(selectedAnswer) {
             const resultDiv = document.getElementById('result');
             if (selectedAnswer === correctAnswer) {
-                resultDiv.innerHTML = "<p style='color:green;'>Correct!</p>";
+                resultDiv.innerHTML = "<p>Correct!</p>";
+                resultDiv.style.backgroundColor = 'black';
+                resultDiv.style.color = 'white';
             } else {
-                resultDiv.innerHTML = "<p style='color:red;'>Try again!</p>";
+                resultDiv.innerHTML = "<p>Try again!</p>";
+                resultDiv.style.backgroundColor = 'black';
+                resultDiv.style.color = 'white';
             }
         }
     </script>
